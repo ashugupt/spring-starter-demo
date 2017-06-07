@@ -1,0 +1,10 @@
+rootProject.name = 'spring-webapp'
+
+include 'webapp'
+include 'crons'
+include 'jdbc'
+include 'secure'
+include 'spring-data-jpa'
+include 'transactions'
+include 'jpa-rest'
+include 'spring-testing'

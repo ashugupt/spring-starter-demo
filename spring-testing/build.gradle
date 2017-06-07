@@ -1,0 +1,48 @@
+group 'net.ashugupt.github'
+version '0.0.1-SNAPSHOT'
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'idea'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'war'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.5.3.RELEASE")
+    }
+}
+
+dependencies {
+    compile("org.springframework.boot:spring-boot-starter-web:1.5.3.RELEASE")
+    compile("org.springframework.boot:spring-boot-starter-data-rest:1.5.3.RELEASE")
+    compile("org.springframework.boot:spring-boot-starter-data-jpa:1.5.3.RELEASE")
+
+    compile("com.h2database:h2:1.4.195")
+
+    testCompile('junit:junit:4.12')
+    testCompile("org.springframework.boot:spring-boot-starter-test:1.5.3.RELEASE")
+}
+
+jar {
+    baseName = 'gs-spring-tests'
+    version = '0.0.1-SNAPSHOT'
+}
+
+test {
+    testLogging {
+        // Show that tests are run in the command-line output
+        events 'started', 'passed'
+    }
+}
