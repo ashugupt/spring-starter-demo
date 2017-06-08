@@ -1,0 +1,36 @@
+buildscript {
+    repositories { mavenCentral() }
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+
+ext {
+    springBootV = '1.5.3.RELEASE'
+    junitV = '4.12'
+}
+
+dependencyManagement {
+    def springBootVersion = '1.5.3.RELEASE'
+
+    imports { mavenBom("org.springframework.boot:spring-boot-dependencies:${springBootVersion}") }
+}
+
+
+jar {
+    baseName = 'gs-multi-module-library'
+    version = '0.0.1-SNAPSHOT'
+}
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+repositories { mavenCentral() }
+
+dependencies {
+    compile("org.springframework.boot:spring-boot-starter-web:${springBootV}")
+    compile("org.springframework.boot:spring-boot-starter-actuator:${springBootV}")
+
+    testCompile("org.springframework.boot:spring-boot-starter-test:${springBootV}")
+    testCompile("junit:junit:${junitV}")
+}

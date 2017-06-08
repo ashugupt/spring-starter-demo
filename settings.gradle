@@ -11,3 +11,5 @@ include 'spring-testing'
 
 include 'multimodule:library'
 include 'multimodule:application'
+
+include 'actuator'
